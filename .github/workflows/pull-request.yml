@@ -1,26 +1,26 @@
-name: Run ESLint on Pull Requests
+name: Angular CI
 
-on:
-  - pull_request
+on: 
+ workflow_dispatch:
 
 jobs:
   build:
-    name: Run ESLint
     runs-on: ubuntu-latest
+
     steps:
-      
-      # Check out the repository
-      - uses: actions/checkout@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Install Node.js
-      - uses: actions/setup-node@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 14
 
-      # Install your dependencies
-      - run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      # Run ESLint using latest action
-      - uses: eslint/github-action@draft
-        env:
-          ESLINT_DRAFT: 1
+      - name: Run Angular lint
+        run: npm run lint
+
+      - name: Run Angular tests
+        run: npm run test
