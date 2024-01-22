@@ -1,11 +1,4 @@
 {
-  "name": "@eslint/github-action",
-  "version": "0.1.0",
-  "description": "Run ESLint on GitHub pull requests",
-  "bin": "src/bin.js",
-  "files": [
-    "src"
-  ],
   "scripts": {
     "lint": "ng lint",
     "test": "ng test"
