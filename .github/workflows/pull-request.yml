@@ -22,7 +22,7 @@ jobs:
           npm install -g @angular/cli
 
       - name: Run Angular lint
-        run: ng lint
+        run: npm run lint
 
       - name: Run Angular tests
-        run: ng test
+        run: npm run test
